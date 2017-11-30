@@ -40,17 +40,7 @@
 
 </ul>
 
-$(document).on("click", "a.menuLink", function () {
-        // Title Show in Brower 
-        var title = $(this).attr('title');
-        $(".title").text('BKMEA | '+title);
-        
-        $("div.errorMsg").hide('slide');
-
-        // Ajax success message
-        $("div.successMessage").hide('slide');
-        $("div.successMsg").hide('slide');
-
+$(document).on("click", "a.menuLink", function () {        
         // remove class add in menu link
         $('#side-menu li').removeClass('active');
         $(this).parent().addClass('active');
