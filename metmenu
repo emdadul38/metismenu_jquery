@@ -1,0 +1,62 @@
+<ul class="nav metismenu" id="side-menu">    
+    <li class="active">
+        <a class="menuLink active" href="#" title="Dashboard" url="{{url('admin/dashboard')}}" ><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard</span></a>
+
+    </li>
+    <li>
+        <a class="menuLink" href="#" title="Membership Renewal" url="{{url('admin/membership_renewal')}}"><i class="fa fa-user"></i> <span class="nav-label">Membership Renewal</span></a>
+    </li>
+    <li>
+        <a  href="#"><i class="fa fa-line-chart"></i> <span class="nav-label">Report</span><span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level collapse">
+            <li><a class="menuLink" href="#" title="Member List" url="{{url('admin/member_list')}}">Member List</a></li>
+            <li><a class="menuLink" href="#" title="Ordinary Member List" url="{{url('admin/ordinary_member')}}">Ordinary Member List</a></li>
+            <li><a class="menuLink" href="#" title="Associate Member" url="{{url('admin/associate_member')}}">Associate Member</a></li>
+            <li><a class="menuLink" href="#" title="Renewed Member" url="{{url('admin/renewed_member')}}">Renewed Member</a></li>
+            <li><a class="menuLink" href="#" title="Non Renewed Member" url="{{url('admin/non_renewed_member')}}">Non Renewed Member</a></li>
+            <li><a class="menuLink" href="#" title="Zone Wise Member" url="{{url('admin/zone_wise_member')}}">Zone Wise Member</a></li>
+            <li><a class="menuLink" href="#" title="Membership Director" url="{{url('admin/membership_director')}}">Membership Director</a></li>
+        </ul>
+    </li>
+    <li>
+        <a  href="#"><i class="fa fa-cog"></i> <span class="nav-label">Setting</span><span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level collapse">
+            <li><a class="menuLink" title="Designation"  href="#" url="{{url('admin/designation')}}">Designation</a></li>
+            <li><a class="menuLink" title="Bank"  href="#" url="{{url('admin/bank')}}">Banks</a></li>
+            <li><a class="menuLink" title="Member Category"  href="#" url="{{url('admin/member_category')}}">Member Category</a></li>
+            <li><a class="menuLink" title="Member Type"  href="#" url="{{url('admin/member_type')}}">Member Type</a></li>
+            <li><a class="menuLink" title="Upazilla"  href="#" url="{{url('admin/upazilla_thana')}}">Upazilla/Thana</a></li>
+            <li><a class="menuLink" title="District"  href="#" url="{{url('admin/district')}}">District</a></li>
+            <li><a class="menuLink" title="Division"  href="#" url="{{url('admin/division')}}">Division</a></li>
+            <li><a class="menuLink" title="Country"  href="#" url="{{url('admin/country')}}">Country</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#"><i class="fa fa-envelope"></i> <span class="nav-label">Mailbox</span><span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level collapse">
+            <li><a class="menuLink" title="Common Email"  href="#" url="{{ url('admin/mail/common_mail') }}">Common Email</a></li>
+        </ul>
+    </li>
+
+</ul>
+
+$(document).on("click", "a.menuLink", function () {
+        // Title Show in Brower 
+        var title = $(this).attr('title');
+        $(".title").text('BKMEA | '+title);
+        
+        $("div.errorMsg").hide('slide');
+
+        // Ajax success message
+        $("div.successMessage").hide('slide');
+        $("div.successMsg").hide('slide');
+
+        // remove class add in menu link
+        $('#side-menu li').removeClass('active');
+        $(this).parent().addClass('active');
+        $(this).parent('li').parent().parent('li').addClass('active');
+        if($(this).parent().parent('ul').hasClass('nav metismenu')){
+            $('.nav-second-level').removeClass('in');
+        }
+});
+
